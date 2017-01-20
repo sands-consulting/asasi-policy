@@ -12,7 +12,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Sands\\Asasi\\Policy" : "src/"
+            "Sands\\Asasi\\Policy\\" : "src/"
         }
     },
     "require": {
