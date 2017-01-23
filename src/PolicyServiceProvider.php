@@ -2,7 +2,6 @@
 
 namespace Sands\Asasi\Policy;
 
-use Sands\Asasi\Policy\Policy;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 
@@ -15,7 +14,9 @@ class PolicyServiceProvider extends ServiceProvider
      */
     public function register()
     {   
-        //
+        $this->app->singleton('policy', function() {
+            return new Policy($this->app->auth->guard());
+        });
     }
 
     /**
@@ -25,8 +26,6 @@ class PolicyServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->singleton('policy', function() {
-            return new Policy($this->app->auth->guard());
-        });
+        //
     }
 }
