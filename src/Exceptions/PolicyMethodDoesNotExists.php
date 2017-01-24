@@ -1,14 +1,14 @@
 <?php
 
-namespace Sands\Asasi\Http\Exceptions;
+namespace Sands\Asasi\Policy\Exceptions;
 
 use Exception;
 
-class FormRequestValidationDoesNotExist extends Exception
+class PolicyMethodDoesNotExists extends Exception
 {
-    public function __construct($class, $code = 0, Exception $previous = null)
+    public function __construct($class, $method, $code = 0, Exception $previous = null)
     {
-        $this->message = 'Validation rules for "'.$class.'" does not exists';
+        $this->message = 'Policy "'.$method.'" does not exists in class "'.$class.'"';
         parent::__construct($this->message, $code = 0, $previous);
     }
 }

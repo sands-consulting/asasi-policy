@@ -2,7 +2,6 @@
 
 namespace Sands\Asasi\Policy;
 
-use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 
 class PolicyServiceProvider extends ServiceProvider
