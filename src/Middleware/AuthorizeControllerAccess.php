@@ -7,13 +7,6 @@ use Sands\Asasi\Policy\Policy;
 
 class AuthorizeControllerAccess
 {
-    protected $policy;
-
-    public function __construct(Policy $policy)
-    {
-        $this->policy = $policy;
-    }
-
     /**
      * Handle an incoming request.
      *
@@ -24,7 +17,7 @@ class AuthorizeControllerAccess
      */
     public function handle($request, Closure $next)
     {
-        if (!$this->policy->checkCurrentRoute()) {
+        if (!app('policy')->checkCurrentRoute()) {
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {

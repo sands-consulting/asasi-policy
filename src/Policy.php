@@ -19,7 +19,7 @@ class Policy
 
     public function check($controller, $action, $parameters = [])
     {
-        $user       = $this->auth->user;
+        $user       = $this->auth->user();
         $parameters = $parameters ?: [];
 
         if (!isset($this->policies[$controller])) {
@@ -49,7 +49,7 @@ class Policy
     protected function getPolicy($controller)
     {
         if (!isset($this->cached[$controller])) {
-            $this->cached[$controller] = new $this->policies[$controller]($this->auth);
+            $this->cached[$controller] = new $this->policies[$controller];
         }
 
         return $this->cached[$controller];
